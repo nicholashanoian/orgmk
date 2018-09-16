@@ -18,6 +18,15 @@ CleanUp ()
 {
     # remove the Makefile
     rm orgmk.mk
+	# move compilation junk to .build folder
+	mkdir -p .build
+	for f in {_minted*,*.bbl,*.tex,*.tex.log}; do
+
+		## Check if the glob gets expanded to existing files.
+		## If not, f here will be exactly the pattern above
+		## and the exists test will evaluate to false.
+		[ -e "$f" ] && rm -rf .build/$f && mv $f .build
+	done
 }
 
 # perform housekeeping on program exit or a variety of signals

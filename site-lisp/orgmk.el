@@ -185,7 +185,7 @@
               "pdflatex -interaction=nonstopmode -output-directory=%o %f"
               "pdflatex -interaction=nonstopmode -output-directory=%o %f"))))
 
-  (message "LaTeX command: %S" org-latex-pdf-process)
+
 
   ;; tell org to use `listings' (instead of `verbatim') for source code
   (setq org-latex-listings t)
@@ -213,5 +213,7 @@
 (dolist (file (directory-files
                (concat orgmk-el-directory "../lisp/") t ".+\\.elc?$"))
   (load-file file))
+
+(message "LaTeX command: %S" org-latex-pdf-process)
 
 ;;; orgmk.el ends here
